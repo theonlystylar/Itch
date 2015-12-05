@@ -2,15 +2,10 @@
 
 var GulpConfig = (function() {
 	function gulpConfig() {
-		this.source = "./src/";
-		this.sourceApp = this.source + "app/";
-
-		this.tsOutputPath = this.source + "/js";
-		this.allJavaScript = [this.source + "/js/**/*.js"];
-		this.allTypeScript = this.sourceApp + "/**/*.ts";
-
-		this.typings = "./tools/typings/";
-		this.libraryTypeScriptDefinitions = "./tools/typings/**/*.ts";
+		this.typescriptOutputPath = "wwwroot/js/app";
+		this.typescriptSourcePath = "./src/app/**/*.ts"; // path to typescript files 
+		this.typescriptDefinitionOutputPath = "wwwroot/js/definitions"; // reference to library .d.ts files
+		this.typescriptDefinitionSourcePath = "./tools/typings/**/*.ts"; // reference to library .d.ts files
 	}
 
 	return gulpConfig;

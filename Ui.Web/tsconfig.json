@@ -1,5 +1,7 @@
 {
   "compilerOptions": {
+    "declaration": true,
+    "outFile": "app.js",
     "noImplicitAny": false,
     "noEmitOnError": true,
     "removeComments": false,
