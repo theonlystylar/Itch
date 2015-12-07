@@ -54,7 +54,8 @@ gulp.task("copy-bower", function() {
 	gulp.src([
 			"bower_components/bootstrap/dist/js/bootstrap*.js",
 			"bower_components/bootstrap/dist/css/bootstrap*.css",
+			"bower_components/bootstrap/dist/fonts/*",
 			"bower_components/jquery/dist/jquery*.js"
-		], { base: "./bower_components" }) // preserve component file structure
+		], { base: "./bower_components" }) // used "base" option to preserve component file structure
 		.pipe(gulp.dest("wwwroot/lib"));
 });
