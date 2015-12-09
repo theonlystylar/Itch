@@ -1,0 +1,1 @@
+{"version":3,"sources":["Client/app.ts"],"names":["App","App.constructor","App.getName"],"mappings":";IAAA;QAGIA,aAAYA,IAAYA;YACpBC,IAAIA,CAACA,KAAKA,GAAGA,IAAIA,CAACA;QACtBA,CAACA;QAEMD,qBAAOA,GAAdA;YACIE,MAAMA,CAACA,IAAIA,CAACA,KAAKA,CAACA;QACtBA,CAACA;QACLF,UAACA;IAADA,CAVA,AAUCA,IAAA;IAVY,WAAG,MAUf,CAAA","file":"app.js","sourcesContent":[null],"sourceRoot":"/source/"}
