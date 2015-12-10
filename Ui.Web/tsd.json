@@ -10,6 +10,12 @@
     },
     "jquery/jquery.d.ts": {
       "commit": "c3ab375b371b7b4204adee3b1209baecd81cec02"
+    },
+    "marked/marked.d.ts": {
+      "commit": "923c5431d9447db9d5cf41adc5914e3c94c1ff10"
+    },
+    "angularjs/angular-route.d.ts": {
+      "commit": "923c5431d9447db9d5cf41adc5914e3c94c1ff10"
     }
   }
 }

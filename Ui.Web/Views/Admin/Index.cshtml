@@ -1,0 +1,28 @@
+﻿@{ Layout = ""; }
+
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+	<meta charset="utf-8"/>
+	<title>Itch Admin</title>
+	<base href="/admin"/>
+	<environment names="Development">
+		<link rel="stylesheet" href="~/lib/bootstrap/css/bootstrap.css"/>
+		<link rel="stylesheet" href="~/css/site.css"/>
+	</environment>
+</head>
+<body>
+<div ng-view></div>
+<environment names="Development">
+	<script src="~/lib/jquery/jquery.js"></script>
+	<script src="~/lib/bootstrap/js/bootstrap.js"></script>
+	<script src="~/lib/angular/angular.js"></script>
+	<script src="~/lib/angular/angular-route.js"></script>
+	<script src="~/lib/angular/angular-sanitize.js"></script>
+	<script src="~/lib/angular/angular-cookies.js"></script>
+	<script src="~/lib/marked/marked.js"></script>
+	<script src="~/lib/angular/angular-marked.js"></script>
+	<script src="~/js/adminscripts"></script>
+</environment>
+</body>
+</html>

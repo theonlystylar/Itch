@@ -1,1 +1,0 @@
-{"version":3,"sources":["Core/data.ts"],"names":["Data","Data.constructor","Data.getName"],"mappings":";IAAA;QAGIA,cAAYA,IAAYA;YACpBC,IAAIA,CAACA,KAAKA,GAAGA,IAAIA,CAACA;QACtBA,CAACA;QAEMD,sBAAOA,GAAdA;YACIE,MAAMA,CAACA,IAAIA,CAACA,KAAKA,CAACA;QACtBA,CAACA;QACLF,WAACA;IAADA,CAVA,AAUCA,IAAA;IAVY,YAAI,OAUhB,CAAA","file":"data.js","sourcesContent":[null],"sourceRoot":"/source/"}

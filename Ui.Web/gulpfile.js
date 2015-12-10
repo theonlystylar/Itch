@@ -53,17 +53,49 @@ gulp.task("min:css", function() {
 gulp.task("min", ["min:js", "min:css"]);
 
 /*
- * Copy bower files to wwwroot
+ * Copy bower files to destination
  */
-gulp.task("copy:bower", function() {
+gulp.task("bower", ["bower:clean"], function() {
+	// bootstrap
 	gulp.src([
 			"bower_components/bootstrap/dist/js/bootstrap*.js",
 			"bower_components/bootstrap/dist/css/bootstrap*.css",
-			"bower_components/bootstrap/dist/fonts/*",
-			"bower_components/jquery/dist/jquery*.js",
-			"bower_components/requirejs/require.js"
-		], { base: "./bower_components" }) // used "base" option to preserve component file structure
-		.pipe(gulp.dest("wwwroot/lib"));
+			"bower_components/bootstrap/dist/fonts/*"
+		], { base: "./bower_components/bootstrap/dist" }) // used "base" option to preserve component file structure
+		.pipe(gulp.dest(paths.webroot + "lib/bootstrap"));
+
+	// jquery
+	gulp.src("bower_components/jquery/dist/jquery*.js")
+		.pipe(gulp.dest(paths.webroot + "lib/jquery"));
+
+	// angular
+	gulp.src([
+			"bower_components/angular/angular.js",
+			"bower_components/angular/angular.min.js",
+			"bower_components/angular-cookies/angular-cookies.js",
+			"bower_components/angular-cookies/angular-cookies.min.js",
+			"bower_components/angular-marked/dist/angular-marked.js",
+			"bower_components/angular-marked/dist/angular-marked.min.js",
+			"bower_components/angular-route/angular-route.js",
+			"bower_components/angular-route/angular-route.min.js",
+			"bower_components/angular-sanitize/angular-sanitize.js",
+			"bower_components/angular-sanitize/angular-sanitize.min.js"
+		])
+		.pipe(gulp.dest(paths.webroot + "lib/angular"));
+
+	// marked
+	gulp.src([
+			"bower_components/marked/lib/marked.js",
+			"bower_components/marked/marked.min.js"
+		])
+		.pipe(gulp.dest(paths.webroot + "lib/marked"));
+});
+
+/*
+ * Clean bower destination
+ */
+gulp.task("bower:clean", function() {
+	return del(paths.webroot + "lib/**/*");
 });
 
 /*
@@ -77,14 +109,13 @@ var tsConcatDetination = [
 var tsProject = typescript.createProject("tsconfig.json");
 gulp.task("ts", ["ts:lint", "ts:clean"], function() {
 	return gulp.src([
-			"./Scripts/Core/**/*.ts",
-			"./Scripts/Client/**/*.ts"
+			//"./Scripts/Core/**/*.ts",
+			//"./Scripts/Client/**/*.ts"
+			"./App/**/*.ts",
+			"./Tools/TypeScriptTypings/tsd.d.ts"
 		]) // all your ts files here (check the path)
 		.pipe(sourcemaps.init())
-		.pipe(typescript({
-			sortOutput: true,
-			module: "amd"
-		}))
+		.pipe(typescript(tsProject))
 		.js // compile with tsc, ordered with _reference.ts
 		//.pipe(addsrc('external.js')) // add an external javascript file (if needed)
 		//.pipe(concat("client.js")) // concat all in one file
@@ -96,7 +127,7 @@ gulp.task("ts", ["ts:lint", "ts:clean"], function() {
  * Lint all custom typescript files.
  */
 gulp.task("ts:lint", function() {
-	return gulp.src("./Scripts/**/*.ts")
+	return gulp.src("./App/**/*.ts")
 		.pipe(tslint())
 		.pipe(tslint.report(tslintStyle, {
 			emitError: false,
